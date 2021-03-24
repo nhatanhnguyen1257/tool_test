@@ -59,7 +59,7 @@ A:\tool\tool_test\Tool1\bin\Debug\BouncyCastle.Crypto.xml
 A:\tool\tool_test\Tool1\bin\Debug\DocumentFormat.OpenXml.xml
 A:\tool\tool_test\Tool1\bin\Debug\ICSharpCode.SharpZipLib.pdb
 A:\tool\tool_test\Tool1\bin\Debug\ICSharpCode.SharpZipLib.xml
-A:\tool\tool_test\Tool1\bin\Debug\NPOI.xml
-A:\tool\tool_test\Tool1\bin\Debug\NPOI.OOXML.xml
-A:\tool\tool_test\Tool1\bin\Debug\NPOI.OpenXml4Net.xml
 A:\tool\tool_test\Tool1\obj\Debug\Tool1.csproj.CopyComplete
+A:\tool\tool_test\Tool1\obj\Debug\Tool1.csprojAssemblyReference.cache
+A:\tool\tool_test\Tool1\obj\Debug\Tool1.CFRS.UCFRS.resources
+A:\tool\tool_test\Tool1\obj\Debug\Tool1.test_rest_api.UApi.resources

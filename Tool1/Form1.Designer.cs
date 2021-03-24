@@ -30,99 +30,56 @@ namespace Tool1
         /// </summary>
         private void InitializeComponent()
         {
-            this.tb_input = new System.Windows.Forms.TextBox();
-            this.tb_output = new System.Windows.Forms.TextBox();
-            this.bt_sendRequest = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.panel_main1 = new System.Windows.Forms.Panel();
+            this.bt_restApi = new System.Windows.Forms.Button();
+            this.bt_cfrs = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // tb_input
+            // panel_main1
             // 
-            this.tb_input.Location = new System.Drawing.Point(82, 69);
-            this.tb_input.Name = "tb_input";
-            this.tb_input.Size = new System.Drawing.Size(771, 20);
-            this.tb_input.TabIndex = 0;
-            this.tb_input.Click += new System.EventHandler(this.tb_input_Click);
+            this.panel_main1.Location = new System.Drawing.Point(105, 1);
+            this.panel_main1.Name = "panel_main1";
+            this.panel_main1.Size = new System.Drawing.Size(802, 404);
+            this.panel_main1.TabIndex = 0;
             // 
-            // tb_output
+            // bt_restApi
             // 
-            this.tb_output.Enabled = false;
-            this.tb_output.Location = new System.Drawing.Point(82, 139);
-            this.tb_output.Name = "tb_output";
-            this.tb_output.Size = new System.Drawing.Size(771, 20);
-            this.tb_output.TabIndex = 1;
+            this.bt_restApi.Location = new System.Drawing.Point(1, 23);
+            this.bt_restApi.Name = "bt_restApi";
+            this.bt_restApi.Size = new System.Drawing.Size(98, 23);
+            this.bt_restApi.TabIndex = 1;
+            this.bt_restApi.Text = "Test API";
+            this.bt_restApi.UseVisualStyleBackColor = true;
+            this.bt_restApi.Click += new System.EventHandler(this.bt_restApi_Click);
             // 
-            // bt_sendRequest
+            // bt_cfrs
             // 
-            this.bt_sendRequest.Location = new System.Drawing.Point(723, 185);
-            this.bt_sendRequest.Name = "bt_sendRequest";
-            this.bt_sendRequest.Size = new System.Drawing.Size(130, 23);
-            this.bt_sendRequest.TabIndex = 2;
-            this.bt_sendRequest.Text = "Thực hiện test";
-            this.bt_sendRequest.UseVisualStyleBackColor = true;
-            this.bt_sendRequest.Click += new System.EventHandler(this.bt_sendRequest_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(79, 53);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(144, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Đường dẫn tới file dữ liệu test";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(79, 123);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(149, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Đường dẫn tới file kết quả test";
-            // 
-            // label3
-            // 
-            this.label3.Location = new System.Drawing.Point(79, 241);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(774, 143);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "đây là tool thực hiện test API. Trong tool này test thông qua file excl. ";
-            // 
-            // openFileDialog
-            // 
-            this.openFileDialog.Filter = "txt files (*.xlsx)|*.xlsx|All files (*..xlsx)|*..xlsx";
+            this.bt_cfrs.Location = new System.Drawing.Point(1, 52);
+            this.bt_cfrs.Name = "bt_cfrs";
+            this.bt_cfrs.Size = new System.Drawing.Size(98, 23);
+            this.bt_cfrs.TabIndex = 2;
+            this.bt_cfrs.Text = "Test CFRS";
+            this.bt_cfrs.UseVisualStyleBackColor = true;
+            this.bt_cfrs.Click += new System.EventHandler(this.bt_cfrs_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(927, 450);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.bt_sendRequest);
-            this.Controls.Add(this.tb_output);
-            this.Controls.Add(this.tb_input);
+            this.ClientSize = new System.Drawing.Size(909, 407);
+            this.Controls.Add(this.bt_cfrs);
+            this.Controls.Add(this.bt_restApi);
+            this.Controls.Add(this.panel_main1);
             this.Name = "Form1";
-            this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TextBox tb_input;
-        private System.Windows.Forms.TextBox tb_output;
-        private System.Windows.Forms.Button bt_sendRequest;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private OpenFileDialog openFileDialog;
+        private Button bt_rest_api;
+        private Panel panel_main1;
+        private Button bt_restApi;
+        private Button bt_cfrs;
     }
 }
 
