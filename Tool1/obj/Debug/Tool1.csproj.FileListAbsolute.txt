@@ -1,0 +1,65 @@
+D:\Tool1\Tool1\bin\Debug\Tool1.exe.config
+D:\Tool1\Tool1\bin\Debug\Tool1.exe
+D:\Tool1\Tool1\bin\Debug\Tool1.pdb
+D:\Tool1\Tool1\obj\Debug\Tool1.csprojAssemblyReference.cache
+D:\Tool1\Tool1\obj\Debug\Tool1.Form1.resources
+D:\Tool1\Tool1\obj\Debug\Tool1.Properties.Resources.resources
+D:\Tool1\Tool1\obj\Debug\Tool1.csproj.GenerateResource.cache
+D:\Tool1\Tool1\obj\Debug\Tool1.csproj.CoreCompileInputs.cache
+D:\Tool1\Tool1\obj\Debug\Tool1.exe
+D:\Tool1\Tool1\obj\Debug\Tool1.pdb
+D:\Tool1\Tool1\bin\Debug\DocumentFormat.OpenXml.dll
+D:\Tool1\Tool1\bin\Debug\DocumentFormat.OpenXml.xml
+D:\Tool1\Tool1\obj\Debug\Tool1.csproj.ResolveComReference.cache
+D:\Tool1\Tool1\obj\Debug\Tool1.csproj.CopyComplete
+C:\Users\ngao ngao\Downloads\Tool1\Tool1\Tool1\obj\Debug\Tool1.csprojAssemblyReference.cache
+C:\Users\ngao ngao\Downloads\Tool1\Tool1\Tool1\obj\Debug\Tool1.csproj.ResolveComReference.cache
+C:\Users\ngao ngao\Downloads\Tool1\Tool1\Tool1\obj\Debug\Tool1.Form1.resources
+C:\Users\ngao ngao\Downloads\Tool1\Tool1\Tool1\obj\Debug\Tool1.Properties.Resources.resources
+C:\Users\ngao ngao\Downloads\Tool1\Tool1\Tool1\obj\Debug\Tool1.csproj.GenerateResource.cache
+C:\Users\ngao ngao\Downloads\Tool1\Tool1\Tool1\obj\Debug\Tool1.exe
+C:\Users\ngao ngao\Downloads\Tool1\Tool1\Tool1\obj\Debug\Tool1.pdb
+C:\Users\ngao ngao\Downloads\Tool1\Tool1\Tool1\bin\Debug\Tool1.exe.config
+C:\Users\ngao ngao\Downloads\Tool1\Tool1\Tool1\bin\Debug\Tool1.exe
+C:\Users\ngao ngao\Downloads\Tool1\Tool1\Tool1\bin\Debug\Tool1.pdb
+C:\Users\ngao ngao\Downloads\Tool1\Tool1\Tool1\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\ngao ngao\Downloads\Tool1\Tool1\Tool1\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\ngao ngao\Downloads\Tool1\Tool1\Tool1\obj\Debug\Interop.LCC11.dll
+C:\Users\ngao ngao\Downloads\Tool1\Tool1\Tool1\obj\Debug\Tool1.csproj.CopyComplete
+C:\Users\ngao ngao\Downloads\Tool1\Tool1\Tool1\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\ngao ngao\Downloads\Tool1\Tool1\Tool1\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\ngao ngao\Downloads\Tool1\Tool1\Tool1\bin\Debug\NPOI.dll
+C:\Users\ngao ngao\Downloads\Tool1\Tool1\Tool1\bin\Debug\NPOI.OOXML.dll
+C:\Users\ngao ngao\Downloads\Tool1\Tool1\Tool1\bin\Debug\NPOI.OpenXml4Net.dll
+C:\Users\ngao ngao\Downloads\Tool1\Tool1\Tool1\bin\Debug\NPOI.OpenXmlFormats.dll
+C:\Users\ngao ngao\Downloads\Tool1\Tool1\Tool1\bin\Debug\BouncyCastle.Crypto.xml
+C:\Users\ngao ngao\Downloads\Tool1\Tool1\Tool1\bin\Debug\ICSharpCode.SharpZipLib.pdb
+C:\Users\ngao ngao\Downloads\Tool1\Tool1\Tool1\bin\Debug\ICSharpCode.SharpZipLib.xml
+C:\Users\ngao ngao\Downloads\Tool1\Tool1\Tool1\bin\Debug\NPOI.xml
+C:\Users\ngao ngao\Downloads\Tool1\Tool1\Tool1\bin\Debug\NPOI.OOXML.xml
+C:\Users\ngao ngao\Downloads\Tool1\Tool1\Tool1\bin\Debug\NPOI.OpenXml4Net.xml
+A:\tool\tool_test\Tool1\obj\Debug\Interop.LCC11.dll
+A:\tool\tool_test\Tool1\obj\Debug\Tool1.csproj.ResolveComReference.cache
+A:\tool\tool_test\Tool1\obj\Debug\Tool1.Form1.resources
+A:\tool\tool_test\Tool1\obj\Debug\Tool1.Properties.Resources.resources
+A:\tool\tool_test\Tool1\obj\Debug\Tool1.csproj.GenerateResource.cache
+A:\tool\tool_test\Tool1\obj\Debug\Tool1.exe
+A:\tool\tool_test\Tool1\obj\Debug\Tool1.pdb
+A:\tool\tool_test\Tool1\bin\Debug\Tool1.exe.config
+A:\tool\tool_test\Tool1\bin\Debug\Tool1.exe
+A:\tool\tool_test\Tool1\bin\Debug\Tool1.pdb
+A:\tool\tool_test\Tool1\bin\Debug\BouncyCastle.Crypto.dll
+A:\tool\tool_test\Tool1\bin\Debug\DocumentFormat.OpenXml.dll
+A:\tool\tool_test\Tool1\bin\Debug\ICSharpCode.SharpZipLib.dll
+A:\tool\tool_test\Tool1\bin\Debug\NPOI.dll
+A:\tool\tool_test\Tool1\bin\Debug\NPOI.OOXML.dll
+A:\tool\tool_test\Tool1\bin\Debug\NPOI.OpenXml4Net.dll
+A:\tool\tool_test\Tool1\bin\Debug\NPOI.OpenXmlFormats.dll
+A:\tool\tool_test\Tool1\bin\Debug\BouncyCastle.Crypto.xml
+A:\tool\tool_test\Tool1\bin\Debug\DocumentFormat.OpenXml.xml
+A:\tool\tool_test\Tool1\bin\Debug\ICSharpCode.SharpZipLib.pdb
+A:\tool\tool_test\Tool1\bin\Debug\ICSharpCode.SharpZipLib.xml
+A:\tool\tool_test\Tool1\bin\Debug\NPOI.xml
+A:\tool\tool_test\Tool1\bin\Debug\NPOI.OOXML.xml
+A:\tool\tool_test\Tool1\bin\Debug\NPOI.OpenXml4Net.xml
+A:\tool\tool_test\Tool1\obj\Debug\Tool1.csproj.CopyComplete
