@@ -59,29 +59,37 @@ namespace Tool1.test_rest_api
             int colCount = xlRange.Columns.Count;
 
             Request[] queueRequest = new Request[rowCount - 1];
-            // vị trí hàng đầu tiên bắt đầu từ 1 nhưng do hàng 1 dùng cho title lên nó sẽ bắt đầu từ 2
-            for (int i = 2; i <= rowCount; i++)
+            try
             {
-                Request request = new Request();
-                request.method = xlRange.Cells[i, 1] == null || xlRange.Cells[i, 1].Value2 == null ? "" : xlRange.Cells[i, 1].Value2.ToString().ToLower();
-                request.requestUrl = xlRange.Cells[i, 2] == null || xlRange.Cells[i, 2].Value2 == null ? "" : xlRange.Cells[i, 2].Value2.ToString();
-                request.headers = xlRange.Cells[i, 3] == null || xlRange.Cells[i, 3].Value2 == null ? "" : xlRange.Cells[i, 3].Value2.ToString();
-                request.body = xlRange.Cells[i, 4] == null || xlRange.Cells[i, 4].Value2 == null ? "" : xlRange.Cells[i, 4].Value2.ToString();
-                queueRequest[i - 2] = request;
+                // vị trí hàng đầu tiên bắt đầu từ 1 nhưng do hàng 1 dùng cho title lên nó sẽ bắt đầu từ 2
+                for (int i = 2; i <= rowCount; i++)
+                {
+                    Request request = new Request();
+                    request.method = xlRange.Cells[i, 1] == null || xlRange.Cells[i, 1].Value2 == null ? "" : xlRange.Cells[i, 1].Value2.ToString().ToLower();
+                    request.requestUrl = xlRange.Cells[i, 2] == null || xlRange.Cells[i, 2].Value2 == null ? "" : xlRange.Cells[i, 2].Value2.ToString();
+                    request.headers = xlRange.Cells[i, 3] == null || xlRange.Cells[i, 3].Value2 == null ? "" : xlRange.Cells[i, 3].Value2.ToString();
+                    request.body = xlRange.Cells[i, 4] == null || xlRange.Cells[i, 4].Value2 == null ? "" : xlRange.Cells[i, 4].Value2.ToString();
+                    queueRequest[i - 2] = request;
+                }
             }
+            catch(Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
 
-            GC.Collect();
-            GC.WaitForPendingFinalizers();
+                Marshal.ReleaseComObject(xlRange);
+                Marshal.ReleaseComObject(xlWorksheet);
 
-            Marshal.ReleaseComObject(xlRange);
-            Marshal.ReleaseComObject(xlWorksheet);
-           
-            xlWorkbook.Close();
-            Marshal.ReleaseComObject(xlWorkbook);
+                xlWorkbook.Close();
+                Marshal.ReleaseComObject(xlWorkbook);
 
-            xlApp.Quit();
-            Marshal.ReleaseComObject(xlApp);
-
+                xlApp.Quit();
+                Marshal.ReleaseComObject(xlApp);
+            }
             return queueRequest;
         }
 

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using NPOI.SS.UserModel;
+using NPOI.SS.Util;
+using NPOI.XSSF.UserModel;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -19,12 +22,23 @@ namespace Tool1.CFRS
         public void createFileTest(string pathFileTest)
         {
             try { 
-                CFRS.From[] dataForm = readFileTest(pathFileTest);
-                createDirectory();
-                createFileController(dataForm);
-                createFileMenuTest(dataForm);
-                createFileJsp(dataForm);
-                createFileTiles(dataForm);
+                CFRS.FormInput[] dataForm = readFileTest(pathFileTest);
+                if (views.getTypeTest() == TYPE_TEST.HTML)
+                {
+                    if (!Directory.Exists(this.views.getPathOutput()))
+                    {
+                        Directory.CreateDirectory(this.views.getPathOutput());
+                    }
+                    createFileHtml(dataForm);
+                } 
+                else if (views.getTypeTest() == TYPE_TEST.SERVER)
+                {
+                    createDirectory();
+                    createFileController(dataForm);
+                    createFileMenuTest(dataForm);
+                    createFileJsp(dataForm);
+                    createFileTiles(dataForm);
+                }
             }
             catch (SecurityException ex)
             {
@@ -37,14 +51,23 @@ namespace Tool1.CFRS
             }
         }
 
+        private void createFileHtml(CFRS.FormInput[] dataForm)
+        {
+            foreach (var data in dataForm)
+            {
+                Task.Run(()=> {
+                    new FileHtml().createFileHtml(views.getPathOutput(), data);
+                });
+            }
+        }
+
         public void setView(ICFRSContract.IView view)
         {
             this.views = view;
         }
 
-
         /** đọc dữ liệu trong file test*/
-        private CFRS.From[] readFileTest(string path)
+        private CFRS.FormInput[] readFileTest(string path)
         {
 
             Microsoft.Office.Interop.Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
@@ -56,30 +79,39 @@ namespace Tool1.CFRS
             int rowCount = xlRange.Rows.Count;
             int colCount = xlRange.Columns.Count;
 
-            CFRS.From[] arryCFRS = new CFRS.From[rowCount - 1];
-            // vị trí hàng đầu tiên bắt đầu từ 1 nhưng do hàng 1 dùng cho title lên nó sẽ bắt đầu từ 2
-            for (int i = 2; i <= rowCount; i++)
+            CFRS.FormInput[] arryCFRS = new CFRS.FormInput[rowCount - 1];
+            try
             {
-                CFRS.From form = new CFRS.From();
-                form.name = xlRange.Cells[i, 1] == null || xlRange.Cells[i, 1].Value2 == null ? "" : xlRange.Cells[i, 1].Value2.ToString();
-                form.method = xlRange.Cells[i, 2] == null || xlRange.Cells[i, 2].Value2 == null ? "" : xlRange.Cells[i, 2].Value2.ToString().ToLower();
-                form.url = xlRange.Cells[i, 3] == null || xlRange.Cells[i, 3].Value2 == null ? "" : xlRange.Cells[i, 3].Value2.ToString();
-                form.form = xlRange.Cells[i, 4] == null || xlRange.Cells[i, 4].Value2 == null ? "" : xlRange.Cells[i, 4].Value2.ToString();
-                arryCFRS[i - 2] = form;
+                // vị trí hàng đầu tiên bắt đầu từ 1 nhưng do hàng 1 dùng cho title lên nó sẽ bắt đầu từ 2
+                for (int i = 2; i <= rowCount; i++)
+                {
+                    CFRS.FormInput form = new CFRS.FormInput();
+                    form.name = xlRange.Cells[i, 1] == null || xlRange.Cells[i, 1].Value2 == null ? "" : xlRange.Cells[i, 1].Value2.ToString();
+                    form.method = xlRange.Cells[i, 2] == null || xlRange.Cells[i, 2].Value2 == null ? "" : xlRange.Cells[i, 2].Value2.ToString().ToLower();
+                    form.url = xlRange.Cells[i, 3] == null || xlRange.Cells[i, 3].Value2 == null ? "" : xlRange.Cells[i, 3].Value2.ToString();
+                    form.dataOfForm = xlRange.Cells[i, 4] == null || xlRange.Cells[i, 4].Value2 == null ? "" : xlRange.Cells[i, 4].Value2.ToString();
+                    arryCFRS[i - 2] = form;
+                }
             }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
 
-            GC.Collect();
-            GC.WaitForPendingFinalizers();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
 
-            Marshal.ReleaseComObject(xlRange);
-            Marshal.ReleaseComObject(xlWorksheet);
+                Marshal.ReleaseComObject(xlRange);
+                Marshal.ReleaseComObject(xlWorksheet);
 
-            xlWorkbook.Close();
-            Marshal.ReleaseComObject(xlWorkbook);
+                xlWorkbook.Close();
+                Marshal.ReleaseComObject(xlWorkbook);
 
-            xlApp.Quit();
-            Marshal.ReleaseComObject(xlApp);
-
+                xlApp.Quit();
+                Marshal.ReleaseComObject(xlApp);
+            }
             return arryCFRS;
         }
 
@@ -106,7 +138,7 @@ namespace Tool1.CFRS
         }
 
         #region thực hiện ghi file control java
-        private void createFileController(CFRS.From[] dataForm)
+        private void createFileController(CFRS.FormInput[] dataForm)
         {
             string path = this.pathController + "\\ControllerTestCFRS.java";
 
@@ -122,7 +154,7 @@ namespace Tool1.CFRS
 
 
         /** tạo text của file control*/
-        private string createTextFileController(CFRS.From[] dataForm)
+        private string createTextFileController(CFRS.FormInput[] dataForm)
         {
             StringBuilder data = new StringBuilder();
             data.Append("package demo.controller;\n");
@@ -159,7 +191,7 @@ namespace Tool1.CFRS
         #region thực hiện tạo file menu.jsp 
 
         /** tạo file chứa menu các case test CFRS **/
-        private void createFileMenuTest(CFRS.From[] dataForm)
+        private void createFileMenuTest(CFRS.FormInput[] dataForm)
         {
             string path = this.pathJsp + "\\menu.jsp";
 
@@ -173,7 +205,7 @@ namespace Tool1.CFRS
             }
         }
 
-        private string createFileMenuJsp(CFRS.From[] dataForm)
+        private string createFileMenuJsp(CFRS.FormInput[] dataForm)
         {
             StringBuilder data = new StringBuilder();
             data.Append("<%@ page language=\"java\" contentType=\"text/html; charset=utf-8\" pageEncoding=\"utf-8\" %>");
@@ -202,7 +234,7 @@ namespace Tool1.CFRS
         #endregion
 
         #region thực hiện tạo các file giao diện jsp cho các màn hình cần test CFRS
-        private void createFileJsp(CFRS.From[] dataForm)
+        private void createFileJsp(CFRS.FormInput[] dataForm)
         {
             string path = this.pathJsp;
             Queue<string> queue = createListFileJsp(dataForm);
@@ -223,7 +255,7 @@ namespace Tool1.CFRS
         }
 
         /** tạo các file thực hiện test*/
-        public Queue<string> createListFileJsp(CFRS.From[] dataForm)
+        public Queue<string> createListFileJsp(CFRS.FormInput[] dataForm)
         {
             Queue<string> queue = new Queue<string>();
 
@@ -233,7 +265,7 @@ namespace Tool1.CFRS
                 data.Append("<%@ page language=\"java\" contentType=\"text/html; charset=utf-8\" pageEncoding=\"utf-8\" %>");
                 data.Append("");
                 data.Append("<form action=\""+item.url+ "\" method=\""+item.method+"\">\n" );
-                data.Append(item.form);
+                data.Append(item.dataOfForm);
                 data.Append("\n<input type=\"submit\" value=\"Submit\">");
                 data.Append("</form>\n");
                 queue.Enqueue(data.ToString());
@@ -244,7 +276,7 @@ namespace Tool1.CFRS
         #endregion
 
         #region tạo file tiles để chưa config 
-        private void createFileTiles(CFRS.From[] dataForm)
+        private void createFileTiles(CFRS.FormInput[] dataForm)
         {
             // Create the file, or overwrite if the file exists.
             using (FileStream fs = File.Create(this.pathXML + "\\tiles.xml"))
@@ -255,7 +287,7 @@ namespace Tool1.CFRS
             }
         }
 
-        private string fileTilesXml(CFRS.From[] dataForm)
+        private string fileTilesXml(CFRS.FormInput[] dataForm)
         {
             StringBuilder data = new StringBuilder();
 

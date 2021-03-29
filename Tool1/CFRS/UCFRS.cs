@@ -52,5 +52,16 @@ namespace Tool1.CFRS
         {
             return this.tb_output.Text;
         }
+
+        public TYPE_TEST getTypeTest()
+        {
+            if (this.radioHtml.Checked)
+            {
+                return TYPE_TEST.HTML;
+            }else
+            {
+                return TYPE_TEST.SERVER;
+            }
+        }
     }
 }
