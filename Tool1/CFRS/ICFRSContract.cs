@@ -13,6 +13,8 @@ namespace Tool1.CFRS
             void showDialog(string mgs);
 
             string getPathOutput();
+
+            public TYPE_TEST getTypeTest();
         }
 
         public interface IPresenter

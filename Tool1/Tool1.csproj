@@ -75,6 +75,7 @@
   <ItemGroup>
     <Compile Include="CFRS\CFRS.cs" />
     <Compile Include="CFRS\CFRSPresenter.cs" />
+    <Compile Include="CFRS\FileHtml.cs" />
     <Compile Include="CFRS\ICFRSContract.cs" />
     <Compile Include="CFRS\UCFRS.cs">
       <SubType>UserControl</SubType>
